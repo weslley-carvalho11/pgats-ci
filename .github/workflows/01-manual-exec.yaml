@@ -26,11 +26,13 @@ jobs:
         with: 
             node-version: 24.x
 
-      # 
       - name: Instalando Yarn
         run: npm install -g yarn
-
-      - name: Instalando Brwsers do Playwright
+        
+      - name: Instalando dependências 
+        run: yarn
+        
+      - name: Instalando Browsers do Playwright
         run: yarn playwright install 
 
       - name: Executandoos testes e2e
