@@ -33,7 +33,7 @@ jobs:
 
             #   instalação das dependências
             - name: Instalando dependências
-              run: yarncls
+              run: yarn
 
             # instalação dos Browsers do Playwright
             - name: Instalando Browsers do Playwright
