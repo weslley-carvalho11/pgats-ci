@@ -1,0 +1,23 @@
+name: Pipeline de Testes E2E (Playwright - Self Hosted)
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    runs-on: self-hosted 
+    
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright Tests
+        run: npx playwright test
