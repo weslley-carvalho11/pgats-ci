@@ -42,3 +42,11 @@ jobs:
             # executar os testes e2e
             - name: Executando testes e2e
               run: yarn run e2e
+
+            - name: Notificar Discord em caso de falha
+              uses: sarisia/actions-status-discord@v1
+              if: failure()
+              with: 
+                webhook: ${{ secrets.DISCORD_WEBHOOK }}
+                title: "❌ Os testes automatizados falharam na Pipeline!"
+                description: "Verifique o painel do GitHub Actions para analisar o relatório do Playwright."
