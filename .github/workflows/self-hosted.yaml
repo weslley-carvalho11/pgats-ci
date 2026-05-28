@@ -10,14 +10,14 @@ jobs:
     runs-on: self-hosted 
     
     steps:
-      - name: Code Checkout
+      - name: Clone do Projeto
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: npm install --legacy-peer-deps
+      - name: Instalar Depedências
+        run: npm ci
 
-      - name: Install Playwright Browsers
+      - name: Instalar Browsers do Playwright
         run: npx playwright install --with-deps
 
-      - name: Run Playwright Tests
-        run: npx playwright test --headed=false
+      - name: Executar os testes e2e
+        run: npx playwright test
