@@ -20,7 +20,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Executar os testes e2e
-        run: npx playwright test --workers=1 --forbid-only
+        shell: cmd
+        run: npx playwright test
         env:
           CI: true
           DEBUG: pw:browser*
