@@ -18,7 +18,7 @@ jobs:
 
       - name: Instalar Browsers do Playwright
         shell: cmd
-        run: npx playwright install --with-deps
+        run: node node_modules\playwright\cli.js install --with-deps
 
       - name: Executar os testes e2e
         shell: cmd
