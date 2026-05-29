@@ -17,6 +17,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Instalar Browsers do Playwright
+        shell: cmd
         run: npx playwright install --with-deps
 
       - name: Executar os testes e2e
