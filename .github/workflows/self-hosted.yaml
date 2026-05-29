@@ -23,3 +23,4 @@ jobs:
         run: npx playwright test --headed --workers=1 --forbid-only
         env:
           CI: true
+          DEBUG: pw:browser*
