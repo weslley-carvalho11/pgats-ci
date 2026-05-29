@@ -20,4 +20,4 @@ jobs:
         shell: cmd
         env:
           DEBUG: pw:browser*
-        run: nnpx.cmd playwright test
+        run: npx.cmd playwright test
