@@ -19,6 +19,5 @@ jobs:
       - name: Executar os testes e2e
         shell: cmd
         env:
-          CI: true
           DEBUG: pw:browser*
-        run: node "node_modules/playwright/cli.js" test
+        run: nnpx.cmd playwright test
