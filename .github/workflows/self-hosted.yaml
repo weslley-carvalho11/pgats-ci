@@ -9,27 +9,16 @@ jobs:
   e2e-tests:
     runs-on: self-hosted 
     
+    container:
+      image: mcr.microsoft.com/playwright:v1.49.0-noble
     steps:
-        # clone do projeto
-        - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-        # instalção do node
-        - uses: actions/setup-node@v4
-          with:
-              node-version: 24.x
+      - name: Instalando dependências
+        run: yarn install --frozen-lockfile
 
-        # instalação do Yarn
-        - name: Instalando Yarn
-          run: npm install -g yarn
+      - name: Verificando Browsers do Playwright
+        run: yarn playwright install
 
-        #   instalação das dependências
-        - name: Instalando dependências
-          run: yarn
-
-        # instalação dos Browsers do Playwright
-        - name: Instalando Browsers do Playwright
-          run: yarn playwright install
-
-        # executar os testes e2e
-        - name: Executando testes e2e
-          run: yarn run e2e
+      - name: Executando testes e2e
+        run: yarn run e2e
