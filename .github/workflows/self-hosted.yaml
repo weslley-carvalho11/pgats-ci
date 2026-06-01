@@ -8,9 +8,7 @@ on:
 jobs:
   e2e-tests:
     runs-on: self-hosted 
-    
-    container:
-      image: mcr.microsoft.com/playwright:v1.49.0-noble
+
     steps:
       - uses: actions/checkout@v4
 
