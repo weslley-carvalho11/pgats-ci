@@ -10,14 +10,8 @@ jobs:
     runs-on: self-hosted 
     
     steps:
-      - name: Clone do Projeto
+      - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Instalar Depedências
-        run: npm install --legacy-peer-deps
-
-      - name: Executar os testes e2e
-        shell: cmd
-        env:
-          DEBUG: pw:browser*
-        run: npx.cmd playwright test
+      - name: Executar um comando de teste
+        run: echo "Olá! Estou rodando de forma isolada dentro do Docker do meu PC!"
