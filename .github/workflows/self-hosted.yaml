@@ -10,17 +10,22 @@ jobs:
     runs-on: self-hosted 
 
     steps:
-      # 1. Clone do projeto
-      - uses: actions/checkout@v4
+      - name: Checkout do projeto
+        uses: actions/checkout@v4
 
-      # 2. Instalação das dependências do seu projeto
-      - name: Instalando dependências
-        run: yarn install --frozen-lockfile
+      - name: Instalar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
 
-      # 3. Baixa os navegadores E as dependências de sistema do Linux de uma vez só!
-      - name: Instalando Browsers e Dependências do Playwright
-        run: npx playwright install --with-deps
+      - name: Instalar Yarn
+        run: npm install -g yarn
 
-      # 4. Executar os testes e2e
-      - name: Executando testes e2e
+      - name: Instalar dependências
+        run: yarn
+
+      - name: Instalar browsers do Playwright
+        run: yarn playwright install --with-deps
+
+      - name: Executar testes E2E
         run: yarn run e2e
